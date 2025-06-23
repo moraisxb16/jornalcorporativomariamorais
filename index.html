@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jornal Corporativo RENOVA BE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --vermelho-cnn: #000000;
+      --vermelho-claro: #e30189;
+      --preto: #111;
+      --branco: #ffffff;
+      --cinza: #f4f4f4;
+      --cinza-texto: #333;
+      --sombra: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cinza);
+      color: var(--preto);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      padding: auto;
+      flex: 1;
+    }
+
+    .news-list {
+      background: var(--branco);
+      border-radius: 16px;
+      padding: 30px 50px;
+      box-shadow: 0 4px 10px var(--sombra);
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+    }
+
+    .article-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .news-active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .article-category {
+      color: var(--preto);
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .article-title {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+      color: var(--preto);
+    }
+
+    .article-description {
+      color: var(--preto);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .article-image {
+      width: 800px;
+      height: 300px; /* Aumentado para 300px */
+      background-color: #ccc;
+      border-radius: 12px;
+      object-fit: cover; /* Mantém a proporção da imagem */
+    }
+
+    .chart-container {
+      background: var(--branco);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 10px var(--sombra);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    .chart-container h2 {
+      color: var(--preto);
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      font-weight: bold;
+    }
+
+    .chart-container img {
+      width: 400px;
+      height: 450px; /* Tamanho fixo para a imagem do gráfico */
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px var(--sombra);
+    }
+
+    #news-ticker-container {
+      background-color: var(--vermelho-claro);
+      color: var(--branco);
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 0 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 65px;
+      position: relative;
+      z-index: 1;
+    }
+
+    #news-ticker {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      padding: 0 10px;
+    }
+
+    #news-ticker-content {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker-scroll 60s linear infinite;
+    }
+
+    @keyframes ticker-scroll {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .datetime-box {
+      background-color: #000;
+      color: #fff;
+      padding: 14px 14px;
+      border-radius: 2px;
+      font-size: 0.95rem;
+      text-align: right;
+      white-space: nowrap;
+      position: absolute; /* Alterado para absolute */
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      z-index: 5;
+    }
+
+    .footer-logo {
+      position: absolute; /* Alterado para absolute */
+      bottom: 0px;
+      left: 0px;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-logo img {
+      width: 189px;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .chart-container img {
+        height: auto;
+      }
+
+      .article-title {
+        font-size: 1.6rem;
+      }
+
+      #news-ticker-container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+      }
+
+      .datetime-box {
+        position: absolute; /* Alterado para absolute */
+        right: 0;
+        bottom: 0;
+        margin: 0;
+      }
+
+      .footer-logo {
+        bottom: 4px;
+        left: 0px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="news-list">
+      <div class="article-card news-active">
+        <div class="article-category">Evento</div>
+        <div class="article-title">Festa Junina RENOVA BE</div>
+        <div class="article-description">
+          Buscando integrar e motivar seus colaboradores através de atividades temáticas e tradicionais da festa junina, a empresa RENOVA BE anuncia a data de sua comemoração: 26/06/2025.
+        </div>
+        <img class="article-image" src="https://i.ibb.co/Df8qL2sd/240-F-728616626-f-R4-W3-YDSart-Pu1f-D.jpg" />
+      </div>
+      <div class="article-card">
+        <div class="article-category">Lançamento</div>
+        <div class="article-title">Treinamento RenovaBe</div>
+        <div class="article-description">
+          A RENOVA BE tem o prazer de anunciar o lançamento de seu TREINAMENTO, que promete contribuir para o aprendizado dos colaboradores.
+        </div>
+        <img class="article-image" src="https://i.ibb.co/r2Nfxm64/imagem-2-2.png" />
+      </div>
+      <div class="article-card">
+        <div class="article-category">Reconhecimento</div>
+        <div class="article-title">Certificado</div>
+        <div class="article-description">
+          Visando o reconhecimento de esforço de seus colaboradores, a Renova Be tem o prazer de anunciar que após a conclusão do treinamento, todos os participantes receberão um certificado digital de conclusão do treinamento.
+        </div>
+        <img class="article-image" src="https://i.ibb.co/QFYD06Dx/Captura-de-tela-2025-06-18-163927.png" />
+      </div>
+      <div class="article-card">
+        <div class="article-category">Novidade</div>
+        <div class="article-title">Lançamento de Produto</div>
+        <div class="article-description">
+          A RENOVA BE tem o imenso prazer de anunciar o lançamento de seu mais novo produto: MORO 4K
+        </div>
+        <img class="article-image" src="https://i.ibb.co/Zzd8nV5h/imagem-3.png" />
+      </div>
+      <div class="article-card">
+        <div class="article-category">COLABORADORES</div>
+        <div class="article-title">Regulamento: HACKER RANGERS</div>
+        <div class="article-description">
+          A empresa lançou uma plataforma que promove a cultura da cibersegurança corporativa por gamificação.
+        </div>
+        <img class="article-image" src="https://i.ibb.co/RGn0pgn3/Captura-de-tela-2025-06-18-162652.png" />
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <h2>BANNER SEMANAL</h2>
+      <img src="https://i.ibb.co/GvSLckGq/ARRAIA-2025-FANTASIA-1.png" alt="Festival RENOVA BE 2025" />
+    </div>
+  </main>
+
+  <div class="footer-logo">
+    <img src="https://i.ibb.co/TxL89P4n/download.png" alt="Logo RENOVA BE" />
+  </div>
+
+  <div id="news-ticker-container">
+    <div id="news-ticker">
+      <div id="news-ticker-content"></div>
+    </div>
+  </div>
+
+  <div class="datetime-box" id="datetime">00/00/0000<br>00:00</div>
+
+  <script>
+    function atualizarDataHora() {
+      const agora = new Date();
+      const dia = agora.getDate().toString().padStart(2, '0');
+      const mes = (agora.getMonth() + 1).toString().padStart(2, '0');
+      const ano = agora.getFullYear();
+      const hora = agora.getHours().toString().padStart(2, '0');
+      const minuto = agora.getMinutes().toString().padStart(2, '0');
+      document.getElementById('datetime').innerHTML = `${dia}/${mes}/${ano}<br>${hora}:${minuto}`;
+    }
+    setInterval(atualizarDataHora, 1000);
+    atualizarDataHora();
+
+    const newsCards = document.querySelectorAll('.article-card');
+    let currentIndex = 0;
+    function showNextNews() {
+      newsCards[currentIndex].classList.remove('news-active');
+      currentIndex = (currentIndex + 1) % newsCards.length;
+      newsCards[currentIndex].classList.add('news-active');
+    }
+    setInterval(showNextNews, 15000);
+
+    const noticias = [
+      "📊 Vendas Finalizadas: R$ 30.746,84",
+      "📞 Contatos Retornados aos CLIENTES: Total 239",
+      "🚀 Disparos Ativos: 120 | Custo Disparos: R$ 50,00",
+      "🚚 Transportadoras: Em tempo real",
+      "💸 Estornos: 42 - Total: R$ 9.006,89",
+      "🎉 Festa Junina Vitabe: 26/06/2025!",
+      "📰 Novidades RENOVA BE: Nova sede em São Paulo prevista para 2026",
+      "🌱 Projeto Verde RENOVA BE com meta de 50% redução de CO2 até 2030",
+    ];
+    document.getElementById('news-ticker-content').textContent = noticias.join("   •••   ");
+  </script>
+
+</body>
+</html>
