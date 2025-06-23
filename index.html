@@ -13,6 +13,7 @@
       --branco: #ffffff;
       --cinza: #f4f4f4;
       --cinza-texto: #333;
+      --cinza-claro: #7a7474;
       --sombra: rgba(0, 0, 0, 0.1);
     }
 
@@ -36,14 +37,14 @@
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 24px;
-      padding: auto;
+      padding: 0px;
       flex: 1;
     }
 
     .news-list {
       background: var(--branco);
       border-radius: 16px;
-      padding: 30px 50px;
+      padding: 10px 30px;
       box-shadow: 0 4px 10px var(--sombra);
       overflow: hidden;
       position: relative;
@@ -76,7 +77,7 @@
     }
 
     .article-category {
-      color: var(--preto);
+      color: var(--vermelho-claro);
       font-weight: bold;
       font-size: 1.5rem;
       text-transform: uppercase;
@@ -91,15 +92,15 @@
 
     .article-title {
       font-size: 3rem;
-      font-weight: 1000;
+      font-weight: bold;
       margin-bottom: 13px;
       color: var(--preto);
     }
 
     .article-description {
       color: var(--preto);
-      font-size: 1.2rem;
-      line-height: 1.2;
+      font-size: 1.5rem;
+      line-height: 1.0;
       margin-bottom: 16px;
     }
 
@@ -133,9 +134,9 @@
     }
 
     .chart-container h3 {
-      color: var(--preto);
+      color: var(--cinza-claro);
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: normal;
       margin-top: 10px; /* Opcional para ajuste fino */
     }
 
