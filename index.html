@@ -19,8 +19,8 @@
 
     * {
       box-sizing: border-box;
-      margin: 0px;
-      padding: 0px;
+      margin: 0;
+      padding: 0;
     }
 
     body {
@@ -37,7 +37,7 @@
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 24px;
-      padding: 0px;
+      padding: 0;
       flex: 1;
     }
 
@@ -49,7 +49,7 @@
       overflow: hidden;
       position: relative;
       height: 100%;
-      margin-top: 20px; /* Adicionado para descer as informações */
+      margin-top: 20px;
     }
 
     .article-card {
@@ -59,8 +59,8 @@
       width: 100%;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
-      padding-top: 50px; /* Para jogar o conteúdo mais para baixo */
-      padding-bottom: 10px; /* Para altura menor geral */
+      padding-top: 50px;
+      padding-bottom: 10px;
     }
 
     .news-active {
@@ -106,10 +106,10 @@
 
     .article-image {
       width: 800px;
-      height: 300px; /* Aumentado para 300px */
+      height: 300px;
       background-color: #ccc;
       border-radius: 12px;
-      object-fit: cover; /* Mantém a proporção da imagem */
+      object-fit: cover;
     }
 
     .chart-container {
@@ -126,23 +126,29 @@
       margin-top: 20px;
     }
 
-    .chart-container h2 {
-      color: var(--preto);
-      font-size: 2rem;
-      margin-bottom: 30px; /* Espaço entre h2 e h3 */
-      font-weight: bold;
-    }
+    .highlight-title-right {
+  background: linear-gradient(to right, #e30189, #000);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 2rem;
+  font-weight: 900;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  margin-top: -12px;
+  margin-bottom: 40px; /* <- AUMENTA o espaço abaixo do título */
+}
 
     .chart-container h3 {
       color: var(--cinza-claro);
       font-size: 1rem;
       font-weight: normal;
-      margin-top: 10px; /* Opcional para ajuste fino */
+      margin-top: 10px;
     }
 
     .chart-container img {
       width: 400px;
-      height: 450px; /* Tamanho fixo para a imagem do gráfico */
+      height: 450px;
       object-fit: contain;
       border-radius: 12px;
       box-shadow: 0 4px 16px var(--sombra);
@@ -178,23 +184,19 @@
     }
 
     @keyframes ticker-scroll {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
     }
 
     .datetime-box {
       background-color: #000;
       color: #fff;
-      padding: 14px 14px;
+      padding: 14px;
       border-radius: 2px;
       font-size: 0.95rem;
       text-align: right;
       white-space: nowrap;
-      position: absolute; /* Alterado para absolute */
+      position: absolute;
       right: 0;
       bottom: 0;
       margin: 0;
@@ -202,9 +204,9 @@
     }
 
     .footer-logo {
-      position: absolute; /* Alterado para absolute */
-      bottom: 0px;
-      left: 0px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
       z-index: 4;
       display: flex;
       align-items: center;
@@ -227,24 +229,6 @@
       .article-title {
         font-size: 4rem;
       }
-
-      #news-ticker-container {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-      }
-
-      .datetime-box {
-        position: absolute; /* Alterado para absolute */
-        right: 0;
-        bottom: 0;
-        margin: 0;
-      }
-
-      .footer-logo {
-        bottom: 4px;
-        left: 0px;
-      }
     }
   </style>
 </head>
@@ -252,16 +236,13 @@
 
   <main>
     <div class="news-list">
-
       <div class="article-card news-active">
         <div class="article-header">
           <div class="article-category">Evento</div>
           <div class="publication-date">Data da Publicação: 23/06/2025</div>
         </div>
         <div class="article-title">Festa Junina RENOVA BE</div>
-        <div class="article-description">
-          Buscando integrar e motivar seus colaboradores através de atividades temáticas e tradicionais da festa junina, a empresa RENOVA BE anuncia a data de sua comemoração: 26/06/2025. Além de ser uma oportunidade de lazer e descontração, o evento pode ser um momento para reconhecer e valorizar os funcionários, melhorando a motivação e o engajamento. 
-        </div>
+        <div class="article-description">Buscando integrar e motivar seus colaboradores através de atividades temáticas e tradicionais da festa junina, a empresa RENOVA BE anuncia a data de sua comemoração: 26/06/2025...</div>
         <img class="article-image" src="https://i.ibb.co/Df8qL2sd/240-F-728616626-f-R4-W3-YDSart-Pu1f-D.jpg" alt="Festa Junina RENOVA BE" />
       </div>
 
@@ -271,9 +252,7 @@
           <div class="publication-date">Data da Publicação: 24/06/2025</div>
         </div>
         <div class="article-title">Dia do Orgulho LGBTQIAPN+</div>
-        <div class="article-description">
-           No dia 28 de junho celebramos o Dia Internacional do Orgulho LGBTQIAPN+, reforçando nosso compromisso com a diversidade, o respeito e a inclusão. Para marcar a semana, preparamos uma programação especial com momentos de reflexão, aprendizado e troca.
-📅 28/06 (sexta-feira) | 🕒 13h45 | 📍 3º andar. </div>
+        <div class="article-description">No dia 28 de junho celebramos o Dia Internacional do Orgulho LGBTQIAPN+, reforçando nosso compromisso com a diversidade...</div>
         <img class="article-image" src="https://i.ibb.co/x8KGjKLg/SAVE-THE-DATE-M-S-DO-ORGULHO-1.png" alt="Treinamento RenovaBe" />
       </div>
 
@@ -283,10 +262,8 @@
           <div class="publication-date">Data da Publicação: 24/06/2025</div>
         </div>
         <div class="article-title">CHEGOU: MELATONINA</div>
-        <div class="article-description">
-          A RENOVA BE tem o prazer de informar que chegou em nosso estoque a MELATONINA. A Melatonina Renova Be pode ser utilizada diariamente por qualquer adulto que esteja encontrando dificuldades em ter um sono restaurador, ou, que queira manter a qualidade de vida através de noites bem dormidas.
-        </div>
-        <img class="article-image" src="https://i.ibb.co/QFr7khYH/Whats-App-Image-2025-06-24-at-11.jpg" alt="CHEGOU: MELATONINA" alt="NOVIDADE" />
+        <div class="article-description">A RENOVA BE tem o prazer de informar que chegou em nosso estoque a MELATONINA...</div>
+        <img class="article-image" src="https://i.ibb.co/QFr7khYH/Whats-App-Image-2025-06-24-at-11.jpg" alt="CHEGOU: MELATONINA" />
       </div>
 
       <div class="article-card">
@@ -295,8 +272,7 @@
           <div class="publication-date">Data da Publicação: 24/06/2025</div>
         </div>
         <div class="article-title">CASHBACK RENOVABE</div>
-        <div class="article-description">
-          A cada compra, você ganha parte do valor de volta como saldo para usar nas próximas. Esse saldo pode pagar até metade da sua próxima compra. Mesmo usando cashback, você continua acumulando mais nas novas compras, sempre calculado sobre o valor total. Resumindo: compre, acumule saldo, use para pagar uma parte da próxima compra e continue ganhando.     </div>
+        <div class="article-description">A cada compra, você ganha parte do valor de volta como saldo para usar nas próximas...</div>
         <img class="article-image" src="https://i.ibb.co/rG2yRrGp/Chat-GPT-Image-24-06-2025-09-39-1.png" alt="Lançamento de Produto" />
       </div>
 
@@ -306,18 +282,15 @@
           <div class="publication-date">Data da Publicação: 23/06/2025</div>
         </div>
         <div class="article-title">Plataforma: HACKER RANGERS</div>
-        <div class="article-description">
-          A empresa lançou uma plataforma que promove a cultura da cibersegurança corporativa por gamificação. A cultura da cibersegurança deve ser promovida por todas as empresas, independentemente do tamanho ou setor, pois a segurança digital é uma responsabilidade compartilhada.
-        </div>
+        <div class="article-description">A empresa lançou uma plataforma que promove a cultura da cibersegurança corporativa por gamificação...</div>
         <img class="article-image" src="https://i.ibb.co/RGn0pgn3/Captura-de-tela-2025-06-18-162652.png" alt="Plataforma Hacker Rangers" />
       </div>
-
     </div>
 
     <div class="chart-container">
-      <h2>FESTA JUNINA:</h2>
-      <h3>Data da Publicação: 23/06/2025</h3>
+      <h2 class="highlight-title-right">FESTA JUNINA</h2>
       <img src="https://i.ibb.co/GvSLckGq/ARRAIA-2025-FANTASIA-1.png" alt="Festival RENOVA BE 2025" />
+      <h3>Data da Publicação: 23/06/2025</h3>
     </div>
   </main>
 
@@ -363,7 +336,7 @@
       "💸 Estornos: 42 - Total: R$ 9.006,89",
       "🎉 Festa Junina Vitabe: 26/06/2025!",
       "📰 Novidades RENOVA BE: Lançamento de 3 Novos Produtos: MORO 4K, MAGNESIO E COENZIMA Q10",
-      "💤 Chegou a MELATONINA em nosso estoque!",
+      "💤 Chegou a MELATONINA em nosso estoque"
     ];
     document.getElementById('news-ticker-content').textContent = noticias.join("   •••   ");
   </script>
