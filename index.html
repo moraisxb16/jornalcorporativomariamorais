@@ -115,8 +115,8 @@
     .chart-container {
       background: var(--branco);
       border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 10px var(--sombra);
+      padding: 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -124,34 +124,67 @@
       height: 100%;
       text-align: center;
       margin-top: 20px;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .chart-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
     }
 
     .highlight-title-right {
-  background: linear-gradient(to right, #e30189, #e30189);
-  color: rgb(0, 0, 0);
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-size: 2rem;
-  font-weight: 900;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  display: inline-block;
-  margin-top: -12px;
-  margin-bottom: 40px; /* <- AUMENTA o espaço abaixo do título */
-}
+      background: linear-gradient(135deg, #e30189 0%, #a00168 100%);
+      color: var(--branco);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      display: inline-block;
+      margin-top: -12px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-title-right::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+      transform: rotate(30deg);
+    }
 
     .chart-container h3 {
       color: var(--cinza-claro);
-      font-size: 1rem;
-      font-weight: normal;
-      margin-top: 10px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 12px;
+      letter-spacing: 0.2px;
+      padding: 6px 12px;
+      background: rgba(0,0,0,0.03);
+      border-radius: 50px;
+      display: inline-block;
     }
 
     .chart-container img {
-      width: 400px;
-      height: 450px;
+      width: 100%;
+      max-width: 380px;
+      height: auto;
       object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px var(--sombra);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      margin-bottom: 8px;
+    }
+
+    .chart-container img:hover {
+      transform: scale(1.02);
     }
 
     #news-ticker-container {
@@ -253,8 +286,7 @@
           <div class="publication-date">Data da Publicação: 27/06/2025</div>
         </div>
         <div class="article-title">Treinamentos</div>
-        <div class="article-description">  Visando o desenvolvimento do colaborador acaba se ser desenvolvido a área TREINAMENTOS RENOVABE, que promete contribuir para o aprendizado dos colaboradores.O treinamento empresarial serve para aprimorar habilidades e conhecimentos dos colaboradores, aumentando a produtividade, a qualidade do trabalho e a eficiência da empresa como um todo
-</div>
+        <div class="article-description">Visando o desenvolvimento do colaborador acaba se ser desenvolvido a área TREINAMENTOS RENOVABE, que promete contribuir para o aprendizado dos colaboradores. O treinamento empresarial serve para aprimorar habilidades e conhecimentos dos colaboradores, aumentando a produtividade, a qualidade do trabalho e a eficiência da empresa como um todo.</div>
         <img class="article-image" src="https://i.ibb.co/pj4xWdwT/treinamento.png" alt="Treinamento RenovaBe" />
       </div>
 
@@ -263,9 +295,9 @@
           <div class="article-category">NOVIDADE</div>
           <div class="publication-date">Data da Publicação: 24/06/2025</div>
         </div>
-        <div class="article-title">CHEGOU: MELATONINA</div>
-        <div class="article-description">A RENOVA BE tem o prazer de informar que chegou em nosso estoque a MELATONINA. A Melatonina Renova Be pode ser utilizada diariamente por qualquer adulto que esteja encontrando dificuldades em ter um sono restaurador, ou, que queira manter a qualidade de vida através de noites bem dormidas.</div>
-        <img class="article-image" src="https://i.ibb.co/QFr7khYH/Whats-App-Image-2025-06-24-at-11.jpg" alt="CHEGOU: MELATONINA" />
+        <div class="article-title">CD MINAS GERAIS: SALDO REPOSTO DE MELATONINA</div>
+        <div class="article-description">A RENOVA BE tem o prazer de informar que chegou em nosso estoque a MELATONINA no Centro de distribuição de MINAS GERAIS. A Melatonina Renova Be atua como auxílio à modulação do ciclo sono-vigília e do ritmo circadiano, contribuindo para evitar o despertar precoce.</div>
+        <img class="article-image" src="https://i.ibb.co/qLCgVTMf/Whats-App-Image-2025-06-24-at-11.jpg" alt="CHEGOU: MELATONINA" />
       </div>
 
       <div class="article-card">
@@ -290,9 +322,9 @@
     </div>
 
     <div class="chart-container">
-      <h2 class="highlight-title-right">SALDO REPOSTO DE MELATONINA</h2>
-      <img src="https://i.ibb.co/7NyG3SZ8/Melatonina-Maracuja-Kit-1-Frasco-1.jpg" />
-      <h3>Data da Publicação: 27/06/2025</h3>
+      <h2 class="highlight-title-right">CANAIS OFICIAIS RENOVA BE</h2>
+      <img src="https://i.ibb.co/84MMV1hb/Snap-Insta-to-508600244-18072894272311012-1641832768026347050-n.jpg" />
+      <h3>Data da Publicação: 11/07/2025</h3>
     </div>
   </main>
 
@@ -331,9 +363,9 @@
     setInterval(showNextNews, 15000);
 
     const noticias = [
-      "📊 Vendas Finalizadas: R$ 35.746,84",
-      "📞 Contatos Retornados ao Cliente: 1060",
-      "🚀 Disparos Ativos: 200 | Custo Disparos: R$46,00",
+      "📊 Tickt Médio Julho: R$192,32",
+      "📞 Contatos Retornados ao Cliente: 1200",
+      "🚀 Disparos Ativos: 60 | Custo Disparos: R$46,00",
       "🚚 Transportadoras: Em tempo real",
       "💸 Estornos: 35 - Total: R$ 4.006,89",
       "🎉 Lançamento Interno: Treinamentos RenovaBe",
